@@ -1,0 +1,93 @@
+{% extends 'news/common/layout.html' %}
+
+{% block title %}主页{% endblock %}
+
+{% block content %}
+<main>
+    <div class="home_page">
+        <div class="section_1">
+            <div class="news_area">
+                <div class="chp_title">
+                    <span class="eng_txt">News</span>
+                    <div class="chi_txt">泵站新闻</div>
+                </div>
+
+                <div class="news_list">
+                    {% if news_list %}
+                    {% for news in news_list %}
+                    <div class="item">
+                        <div class="title">
+                            <a href="{% url 'news:detail' news.id %}" target="_blank">{{ news.title }}</a>
+                        </div>
+                        <div class="date">{{ news.create_time | date:"Y-m-d" }}</div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="notice_area">
+                <div class="chp_title">
+                    <span class="eng_txt">Notice</span>
+                    <div class="chi_txt">通知公告</div>
+                </div>
+
+                <div class="list">
+                    {% if notice_list %}
+                    {% for news in notice_list %}
+                    <div class="item">
+                        <div class="title">
+                            <a href="{% url 'news:detail' news.id %}" target="_blank">
+                                {{ news.title }}
+                            </a>
+                        </div>
+                        <div class="date">{{ news.create_time | date:"Y-m-d" }}</div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="section_2">
+            <div class="station_area">
+                <div class="chp_title">
+                    <span class="eng_txt">Stations</span>
+                    <div class="chi_txt">泵站信息</div>
+                </div>
+
+                <div class="station_list">
+                    {% if station_list %}
+                    {% for station in station_list %}
+                    <a href="{% url 'news:station' forloop.counter %}" target="_blank">
+                        {{ station.station_name }}
+                    </a>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="file_area">
+                <div class="chp_title">
+                    <span class="eng_txt">Files</span>
+                    <div class="chi_txt">制度文件</div>
+                </div>
+
+                <div class="list">
+                    {% if files_list %}
+                    {% for news in files_list %}
+                    <div class="item">
+                        <div class="title">
+                            <a href="{% url 'news:detail' news.id %}" target="_blank">
+                                {{ news.title }}
+                            </a>
+                        </div>
+                        <div class="date">{{ news.create_time | date:"Y-m-d" }}</div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

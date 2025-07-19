@@ -1,0 +1,57 @@
+{% extends 'news/common/layout.html' %}
+
+{% block title %}文章列表{% endblock %}
+
+{% block content %}
+<main>
+    <div class="news-list">
+        <div class="catelog">
+            <div class="title">信息分类</div>
+            {% if subset_list %}
+            {% for subset in subset_list %}
+            <div class="item {% if  subset.id == subset_primary.id %}active{% endif %}">
+                <a href="{% url 'news:list' subset.id 1 %}">{{ subset.name }}</a>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="wrap2">
+            <div class="title">
+                <div class="text">{{ subset_primary.name }}</div>
+                <div class="line">
+                    <div class="bottom"></div>
+                </div>
+            </div>
+
+            {% if article_list %}
+            <ul>
+                {% for article in article_list %}
+                <li>
+                    <span>-</span>
+                    <span class="news-title">
+                        <a href="{% url 'news:detail' article.id %}" target="_blank">{{ article.title }}
+                        </a>
+                    </span>
+                    <span class="news-date">{{ article.create_time | date:"Y-m-d" }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div class="pagination">
+                {% if article_list.has_previous %}
+                <a class="pagination-item" href="{% url 'news:list' subset_id page_num.pre_num %}">上一页</a>
+                {% endif %}
+
+                <div class="pagination-item active">{{ article_list.number }}</div>
+
+                {% if article_list.has_next %}
+                <a class="pagination-item" href="{% url 'news:list' subset_id page_num.next_num %}">下一页</a>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}

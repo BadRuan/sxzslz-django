@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  {% load static %}
+  <link rel="stylesheet" href="{% static '/css/normalize.css' %}" />
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+  {% block link %}{% endblock %}
+  <title>{% block title %}{% endblock %} - 芜湖市鸠江区沈巷镇水利站</title>
+</head>
+
+<body>
+  {% include 'news/common/header.html' %}
+  {% block content %}{% endblock %}
+  {% include 'news/common/footer.html' %}
+</body>
+
+</html>

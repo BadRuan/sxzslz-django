@@ -1,0 +1,23 @@
+<header>
+  <div class="heder-container">
+    <div class="logo">
+      {% load static %}
+      <img src="{% static '/icon/water-logo.svg' %}" alt="logo" />
+      <img src="{% static '/icon/logo-text.svg' %}" alt="logo-text" />
+    </div>
+    <nav>
+      <a href="{% url 'news:index' %}">
+        <span>网站首页</span>
+        <div></div>
+      </a>
+      <a href="{% url 'news:list' 1 1 %}">
+        <span>新闻列表</span>
+        <div></div>
+      </a>
+      <a href="#">
+        <span>关于我们</span>
+        <div></div>
+      </a>
+    </nav>
+  </div>
+</header>
