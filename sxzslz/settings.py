@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ["127.0.0.1"]
 
 INSTALLED_APPS = [
     "news.apps.NewsConfig",
+    "simpleui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -51,8 +52,12 @@ WSGI_APPLICATION = "sxzslz.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "sxzslz",
+        "HOST": "192.168.3.2",
+        "PORT": 3306,
+        "USER": "root",
+        "PASSWORD": "Deepseek666",
     }
 }
 
@@ -72,12 +77,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "zh-hans"
-
 TIME_ZONE = "Asia/Shanghai"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 STATIC_URL = "static/"
