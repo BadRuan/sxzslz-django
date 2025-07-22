@@ -1,6 +1,8 @@
+from django.db.models.base import Model as Model
 from django.shortcuts import render, get_object_or_404
-from django.http import Http404
+from django.http import HttpResponseRedirect
 from django.core.paginator import Paginator
+from django.views.generic import View, DetailView
 from .models import Article, Subset
 from .station import stations
 
@@ -21,12 +23,17 @@ def news_list(request, subset_id: int, page_num: int):
     return render(request, "news/list.html", context)
 
 
-def news_detail(request, id: int):
-    article = get_object_or_404(Article, pk=id)
-    article.read += 1
-    article.save()
-    context = {"article": article}
-    return render(request, "news/detail.html", context)
+class NewsDetailView(DetailView):
+    template_name: str = "news/detail.html"
+    context_object_name: str = "article"
+    model = Article
+
+    def get_object(self, queryset=None) -> Model:
+        id = self.kwargs.get("id")
+        article = get_object_or_404(self.model, pk=id)
+        article.read += 1  # type: ignore
+        article.save()
+        return article
 
 
 def home(request):
@@ -36,16 +43,19 @@ def home(request):
         "notice_list": Article.objects.filter(subset_id=2).order_by("-create_time")[
             :10
         ],
-        "files_list": Article.objects.filter(subset_id=4).order_by("-create_time")[:4],
+        "files_list": Article.objects.filter(subset_id=3).order_by("-create_time")[:4],
     }
     return render(request, "news/home.html", context)
 
 
-def station_detail(request, id: int):
-    count: int = len(stations)
-    if id < 1 or id > count:
-        return Http404("")
-    context = {
-        "station": stations[id - 1],
-    }
-    return render(request, "news/station_detail.html", context)
+class StationDetailView(View):
+    template_name: str = "news/station_detail.html"
+
+    def get(self, request, id: int):
+        count: int = len(stations)
+        if id < 1 or id > count:
+            return HttpResponseRedirect("/")
+        context = {
+            "station": stations[id - 1],
+        }
+        return render(request, self.template_name, context)

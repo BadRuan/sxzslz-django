@@ -9,7 +9,7 @@
             <div class="title">信息分类</div>
             {% if subset_list %}
             {% for subset in subset_list %}
-            <div class="item {% if  subset.id == subset_primary.id %}active{% endif %}">
+            <div class="item{% if  subset.id == subset_primary.id %} active{% endif %}">
                 <a href="{% url 'news:list' subset.id 1 %}">{{ subset.name }}</a>
             </div>
             {% endfor %}

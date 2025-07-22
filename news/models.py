@@ -20,8 +20,8 @@ class User(Model):
         return self.nick_name
 
     class Meta:
-        verbose_name: str = "用户列表"
-        verbose_name_plural: str = "编辑用户"
+        verbose_name: str = "用户"
+        verbose_name_plural: str = "用户"
 
 
 class Subset(Model):
@@ -32,7 +32,7 @@ class Subset(Model):
         return self.name
 
     class Meta:
-        verbose_name: str = "文章类别列表"
+        verbose_name: str = "文章类别"
         verbose_name_plural: str = "文章类别"
 
 
@@ -49,5 +49,5 @@ class Article(Model):
         return self.title
 
     class Meta:
-        verbose_name: str = "文章列表"
+        verbose_name: str = "文章"
         verbose_name_plural: str = "文章"
