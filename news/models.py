@@ -11,10 +11,10 @@ from django.db.models import (
 
 class User(Model):
     db_table: str = "user"
-    user_name = CharField(max_length=30, unique=True)
-    nick_name = CharField(max_length=30)
-    password = CharField(max_length=30)
-    create_time = DateTimeField("date created")
+    user_name = CharField("用户名", max_length=30, unique=True)
+    nick_name = CharField("昵称", max_length=30)
+    password = CharField("密码", max_length=30)
+    create_time = DateTimeField("创建时间")
 
     def __str__(self) -> str:
         return self.nick_name
@@ -40,10 +40,10 @@ class Article(Model):
     db_table: str = "article"
     user_id = ForeignKey(User, on_delete=CASCADE)
     subset_id = ForeignKey(Subset, on_delete=CASCADE)
-    title = CharField(max_length=60)
-    read = IntegerField(default=0)
-    content = TextField()
-    create_time = DateTimeField("date created")
+    title = CharField("标题", max_length=60)
+    read = IntegerField("浏览量", default=0)
+    content = TextField("文章内容")
+    create_time = DateTimeField("发布时间")
 
     def __str__(self) -> str:
         return self.title
