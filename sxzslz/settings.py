@@ -1,15 +1,19 @@
 from pathlib import Path
+from os.path import join
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-$h$rhjl3mo0kds@g($zdebz!#q48$-#m#aogt45^#bczbd+5h9"
 
-DEBUG = True
+STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+DEBUG = False
+
+ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
+    "gunicorn",
     "news.apps.NewsConfig",
     "simpleui",
     "django.contrib.admin",
@@ -21,6 +25,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -85,9 +90,7 @@ USE_TZ = False
 
 
 STATIC_URL = "static/"
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATIC_ROOT = join(BASE_DIR, "static")
 
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
