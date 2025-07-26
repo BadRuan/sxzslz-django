@@ -1,0 +1,134 @@
+{% extends 'news/common/layout.html' %}
+
+{% block title %}主页{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<main>
+    <div class="home_page">
+
+        <div class="section_1">
+            <div class="pic_box">
+                <div class="title">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="text">泵站要闻</div>
+                </div>
+
+                <div class="banners">
+                    <a href="#">
+                        <div class="img-box">
+                            <img src="{% static '/pic/1.jpg' %}" alt="封面图片">
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="news_list_box">
+                <div class="title_box">
+                    <div class="title">
+                        <div class="line"></div>
+                        <div class="line"></div>
+                        <div class="text">泵站快讯</div>
+                    </div>
+                    <div class="more">
+                        <a href="{% url 'news:list' 1 1 %}">更多 >></a>
+                    </div>
+                </div>
+
+                <div class="dividing_line"></div>
+
+                {% if news_list %}
+                <div class="news_list">
+
+                    {% for news in news_list %}
+                    <div class="news_item">
+                        <div class="news_title">
+                            <a href="{% url 'news:detail' news.id %}" target="_blank">{{ news.title }}</a>
+                        </div>
+                        <div class="describe">
+                            <div class="category">{{ news.subset_id }}</div>
+                            <div class="date_time">{{ news.create_time | date:"Y-m-d" }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <div class="section_2">
+            <div class="title">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="text">泵站信息</div>
+            </div>
+
+            <div class="dividing_line"></div>
+
+            <div class="station_list">
+                {% if station_list %}
+                {% for station in station_list %}
+                <div class="station_item">
+                    <div class="text">
+                        <div class="station_name">{{ station.station_name }}</div>
+                        <div class="station_desc">装机容量 {{ station.zongrongliang }} kw | 流 量 {{ station.liuliang }}
+                            m<sup>3</sup>/s</div>
+                        <div class="station_view">
+                            <a href="{% url 'news:station' forloop.counter %}" target="_blank">查看介绍 > </a>
+                        </div>
+                    </div>
+                    <div class="pic"><img src="{% static '/pic/station/' %}{{ forloop.counter }}.JPG" alt="泵站封面图片">
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="section_3">
+            <div class="title">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="text">泵站特色</div>
+            </div>
+
+            <div class="dividing_line"></div>
+
+            <div class="features_list">
+                <div class="features_item">
+                    <div class="pic_box">
+                        <img src="{% static '/pic/features/1.JPG' %}" alt="特色封面图片">
+                    </div>
+
+                    <div class="text">
+                        <div class="category">泵站维修养护</div>
+                        <div class="topic">加快构建现代化水利基础设施体系，扎实推动水利高质量发展。</div>
+                        <div class="more"><a href="#">了解更多 >></a></div>
+                        <div class="dividing_line"></div>
+                    </div>
+
+                </div>
+
+                <div class="features_item">
+                    <div class="pic_box">
+                        <img src="{% static '/pic/features/2.JPG' %}" alt="特色封面图片">
+                    </div>
+
+                    <div class="text">
+                        <div class="category">泵站维修养护</div>
+                        <div class="topic">加快构建现代化水利基础设施体系，扎实推动水利高质量发展。</div>
+                        <div class="more"><a href="#">了解更多 >></a></div>
+                        <div class="dividing_line"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

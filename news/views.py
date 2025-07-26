@@ -20,11 +20,11 @@ def news_list(request, subset_id: int, page_num: int):
         "subset_id": subset_id,
         "page_num": {"pre_num": page_num - 1, "next_num": page_num + 1},
     }
-    return render(request, "news/list.html", context)
+    return render(request, "news/news_list.html", context)
 
 
 class NewsDetailView(DetailView):
-    template_name: str = "news/detail.html"
+    template_name: str = "news/news_detail.html"
     context_object_name: str = "article"
     model = Article
 
@@ -39,13 +39,9 @@ class NewsDetailView(DetailView):
 def home(request):
     context = {
         "station_list": stations,
-        "news_list": Article.objects.filter(subset_id=1).order_by("-create_time")[:10],
-        "notice_list": Article.objects.filter(subset_id=2).order_by("-create_time")[
-            :10
-        ],
-        "files_list": Article.objects.filter(subset_id=3).order_by("-create_time")[:4],
+        "news_list": Article.objects.order_by("-create_time")[:6],
     }
-    return render(request, "news/home.html", context)
+    return render(request, "news/home_page.html", context)
 
 
 class StationDetailView(View):

@@ -1,0 +1,40 @@
+{% extends 'news/common/layout.html' %}
+
+{% block link %}
+{% load static %}
+<link href="{% static '/css/view.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block title %}{{ article.title }} - 新闻详情页{% endblock %}
+
+{% block content %}
+<main>
+    <div class="location">
+        当前位置：<a href="#">首页</a> ><a href="#">新闻列表</a> > <a href="#">重要新闻</a>
+    </div>
+
+    <div class="news-detail">
+
+        <h1>{{ article.title }}</h1>
+
+        <div class="desc">
+            <div>
+                <img src="{% static '/icon/datetime-icon.svg' %}" alt="日期图标">
+                <span>{{ article.create_time | date:"Y年m月d日 H:i" }}</span>
+            </div>
+            <div>
+                <img src="{% static '/icon/edit-icon.svg' %}" alt="作者图标">
+                <span>{{ article.user_id }}</span>
+            </div>
+            <div>
+                <img src="{% static '/icon/view-icon.svg' %}" alt="阅读次数图标">
+                <span>{{ article.read }}</span>
+            </div>
+        </div>
+
+        <div class="dividing_line"></div>
+
+        <div id="editor-content-view" class="editor-content-view">{{ article.content | safe }}</div>
+    </div>
+</main>
+{% endblock %}
