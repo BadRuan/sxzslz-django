@@ -7,9 +7,9 @@ SECRET_KEY = "django-insecure-$h$rhjl3mo0kds@g($zdebz!#q48$-#m#aogt45^#bczbd+5h9
 STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 
 DEBUG = False
-# CSRF_COOKIE_SECURE = False  # 允许HTTP传输CSRF Cookie
-# SESSION_COOKIE_SECURE = False  # 允许HTTP传输会话Cookie
-# CSRF_TRUSTED_ORIGINS = ["*"]
+CSRF_COOKIE_SECURE = False  # 允许HTTP传输CSRF Cookie
+SESSION_COOKIE_SECURE = False  # 允许HTTP传输会话Cookie
+CSRF_TRUSTED_ORIGINS = ["http://192.168.0.8:8888", "http://10.26.0.11:8888"]
 
 ALLOWED_HOSTS = ["*"]
 
