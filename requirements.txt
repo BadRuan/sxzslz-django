@@ -3,7 +3,6 @@ asgiref==3.9.1
 cffi==1.17.1
 cryptography==45.0.5
 django==5.2.4
-django-simpleui==2025.6.24
 gunicorn==23.0.0
 packaging==25.0
 pycparser==2.22
