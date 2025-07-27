@@ -9,6 +9,7 @@ STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 DEBUG = False
 CSRF_COOKIE_SECURE = False  # 允许HTTP传输CSRF Cookie
 SESSION_COOKIE_SECURE = False  # 允许HTTP传输会话Cookie
+CSRF_TRUSTED_ORIGINS = ["*"]
 
 ALLOWED_HOSTS = ["*"]
 
