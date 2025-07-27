@@ -1,0 +1,25 @@
+version: '1.0'
+
+services:
+  # Django 应用服务（使用 Gunicorn 作为 WSGI 服务器）
+  web:
+    build: .  # 基于当前目录的 Dockerfile 构建
+    volumes:
+      # 可选：若需实时加载代码（开发环境），挂载本地代码（生产环境建议注释）
+      # - .:/usr/src/app
+    networks:
+      - water
+
+  # Nginx 反向代理服务
+  nginx:
+    image: nginx:1.25-alpine  # 轻量级镜像
+    ports:
+      - "8888:80"  # 宿主机 80 端口映射到容器 80 端口
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf  # 挂载 Nginx 配置
+      - ./public:/usr/src/app/staticfiles  # 挂载静态文件（与 STATIC_ROOT 一致）
+    depends_on:
+      - web  # 依赖 web 服务启动后再运行
+    networks:
+      - water
+    restart: always  # 容器崩溃后自动重启

@@ -6,7 +6,7 @@ SECRET_KEY = "django-insecure-$h$rhjl3mo0kds@g($zdebz!#q48$-#m#aogt45^#bczbd+5h9
 
 STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -55,7 +55,7 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "sxzslz",
-        "HOST": "192.168.3.2",
+        "HOST": "mysql",
         "PORT": 3306,
         "USER": "root",
         "PASSWORD": "Deepseek666",
@@ -89,5 +89,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+STATIC_ROOT = BASE_DIR / "public"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
