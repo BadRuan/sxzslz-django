@@ -3,5 +3,5 @@ ENV TZ Asia/Shanghai
 WORKDIR /app
 COPY . /app
 RUN pip install --trusted-host mirrors.huaweicloud.com -i https://mirrors.huaweicloud.com/repository/pypi/simple  -r requirements.txt
-CMD ["gunicorn", "sxzslz.wsgi"]
+CMD ["python", "manage.py", "runserver"]
 EXPOSE 8000
