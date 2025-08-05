@@ -2,6 +2,11 @@ from pydantic import BaseModel
 from typing import List
 
 
+class StationPic(BaseModel):
+    title: str
+    src: str
+
+
 class StationModel(BaseModel):
     station_name: str
     station_location: str
@@ -39,6 +44,8 @@ class StationModel(BaseModel):
     yalixiang_koujing: str
     yalixiang_jiegou: str
 
+    station_pic_list: List[StationPic]
+
 
 stations: List[StationModel] = [
     StationModel(
@@ -72,6 +79,14 @@ stations: List[StationModel] = [
         yalixiang_changdu=65.5,
         yalixiang_koujing="1.7X2.2双孔",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0717.JPG"),
+            StationPic(title="泵站近景", src="DSC_0726.JPG"),
+            StationPic(title="主厂房", src="DSC_0733.JPG"),
+            StationPic(title="开关柜", src="DSC_0739.JPG"),
+            StationPic(title="进水闸", src="DSC_0751.JPG"),
+            StationPic(title="出水闸", src="DSC_0719.JPG"),
+        ],
     ),
     StationModel(
         station_name="藏墩一站",
@@ -104,6 +119,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=35,
         yalixiang_koujing="2X2.5 双孔",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0811.JPG"),
+            StationPic(title="主厂房", src="DSC_0820.JPG"),
+            StationPic(title="开关柜", src="DSC_0828.JPG"),
+            StationPic(title="进水闸", src="DSC_0815.JPG"),
+            StationPic(title="出水闸", src="DSC_0808.JPG"),
+        ],
     ),
     StationModel(
         station_name="大桥泵站",
@@ -136,6 +158,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=43,
         yalixiang_koujing="1.9X2",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0914.JPG"),
+            StationPic(title="主厂房", src="DSC_0907.JPG"),
+            StationPic(title="开关柜", src="DSC_0913.JPG"),
+            StationPic(title="进水闸", src="DSC_0906.JPG"),
+            StationPic(title="出水闸", src="DSC_0916.JPG"),
+        ],
     ),
     StationModel(
         station_name="河南汤站",
@@ -168,6 +197,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=43,
         yalixiang_koujing="1.4X1.6",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0924.JPG"),
+            StationPic(title="主厂房", src="DSC_0929.JPG"),
+            StationPic(title="开关柜", src="DSC_0935.JPG"),
+            StationPic(title="进水闸", src="DSC_0936.JPG"),
+            StationPic(title="出水闸", src="DSC_0920.JPG"),
+        ],
     ),
     StationModel(
         station_name="黄山寺排灌站（老站）",
@@ -200,6 +236,7 @@ stations: List[StationModel] = [
         yalixiang_changdu=44,
         yalixiang_koujing="2.2X3",
         yalixiang_jiegou="钢混",
+        station_pic_list=[],
     ),
     StationModel(
         station_name="黄山寺排灌站（新站）",
@@ -232,6 +269,7 @@ stations: List[StationModel] = [
         yalixiang_changdu=44,
         yalixiang_koujing="2.7X3",
         yalixiang_jiegou="钢混",
+        station_pic_list=[],
     ),
     StationModel(
         station_name="老坝泵站",
@@ -264,6 +302,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=31,
         yalixiang_koujing="3.3X3.3",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0848.JPG"),
+            StationPic(title="主厂房", src="DSC_0856.JPG"),
+            StationPic(title="开关柜", src="DSC_0861.JPG"),
+            StationPic(title="进水闸", src="DSC_0866.JPG"),
+            StationPic(title="出水闸", src="DSC_0851.JPG"),
+        ],
     ),
     StationModel(
         station_name="童子圩泵站",
@@ -296,6 +341,11 @@ stations: List[StationModel] = [
         yalixiang_changdu=43,
         yalixiang_koujing="1.4X1.6",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0945.JPG"),
+            StationPic(title="主厂房", src="DSC_0946.JPG"),
+            StationPic(title="进水渠", src="DSC_0953.JPG"),
+        ],
     ),
     StationModel(
         station_name="新坝泵站",
@@ -328,6 +378,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=45,
         yalixiang_koujing="1.8X2",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0835.JPG"),
+            StationPic(title="主厂房", src="DSC_0841.JPG"),
+            StationPic(title="开关柜", src="DSC_0843.JPG"),
+            StationPic(title="进水闸", src="DSC_0845.JPG"),
+            StationPic(title="出水闸", src="DSC_0833.JPG"),
+        ],
     ),
     StationModel(
         station_name="姚郭泵站",
@@ -360,6 +417,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=50,
         yalixiang_koujing="1.8X2.5 双孔",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0875.JPG"),
+            StationPic(title="主厂房", src="DSC_0892.JPG"),
+            StationPic(title="开关柜", src="DSC_0902.JPG"),
+            StationPic(title="进水闸", src="DSC_0886.JPG"),
+            StationPic(title="出水闸", src="DSC_0877.JPG"),
+        ],
     ),
     StationModel(
         station_name="雍镇泵站",
@@ -392,6 +456,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=45,
         yalixiang_koujing="2.3X2.5 双孔",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0799.JPG"),
+            StationPic(title="主厂房", src="DSC_0782.JPG"),
+            StationPic(title="开关柜", src="DSC_0786.JPG"),
+            StationPic(title="进水闸", src="DSC_0791.JPG"),
+            StationPic(title="出水闸", src="DSC_0803.JPG"),
+        ],
     ),
     StationModel(
         station_name="裕溪泵站",
@@ -424,5 +495,12 @@ stations: List[StationModel] = [
         yalixiang_changdu=49,
         yalixiang_koujing="2X2",
         yalixiang_jiegou="钢混",
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_0756.JPG"),
+            StationPic(title="主厂房", src="DSC_0774.JPG"),
+            StationPic(title="开关柜", src="DSC_0760.JPG"),
+            StationPic(title="进水闸", src="DSC_0766.JPG"),
+            StationPic(title="出水闸", src="DSC_0753.JPG"),
+        ],
     ),
 ]

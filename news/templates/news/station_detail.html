@@ -190,6 +190,23 @@
                         </div>
                     </div>
                 </div>
+
+                {% if station.station_pic_list %}
+                <div class="title">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="text">泵站面貌</div>
+                </div>
+                {% for pic in station.station_pic_list %}
+                <div class="pic_show">
+                    <div class="pic_box">
+                        <img src="/media/station/{{ station_id }}/{{ pic.src }}" alt="">
+                    </div>
+                    <div class="pic_desc">{{ pic.title }}</div>
+                </div>
+                {% endfor %}
+                {% endif %}
+
             </div>
         </div>
     </div>

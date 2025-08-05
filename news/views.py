@@ -51,7 +51,5 @@ class StationDetailView(View):
         count: int = len(stations)
         if id < 1 or id > count:
             return HttpResponseRedirect("/")
-        context = {
-            "station": stations[id - 1],
-        }
+        context = {"station": stations[id - 1], "station_id": id}
         return render(request, self.template_name, context)

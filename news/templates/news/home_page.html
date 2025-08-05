@@ -19,7 +19,7 @@
                 <div class="banners">
                     <a href="#">
                         <div class="img-box">
-                            <img src="{% static '/pic/banner.jpg' %}" alt="封面图片">
+                            <img src="/media/pic/banner.jpg" alt="封面图片">
                         </div>
                     </a>
                 </div>
@@ -81,7 +81,7 @@
                             <a href="{% url 'news:station' forloop.counter %}" target="_blank">查看介绍 > </a>
                         </div>
                     </div>
-                    <div class="pic"><img src="{% static '/pic/station/' %}{{ forloop.counter }}.JPG" alt="泵站封面图片">
+                    <div class="pic"><img src="/media/station/{{ forloop.counter }}/thumbnail_500x500.jpg" alt="泵站封面图片">
                     </div>
                 </div>
                 {% endfor %}
@@ -101,7 +101,7 @@
             <div class="features_list">
                 <div class="features_item">
                     <div class="pic_box">
-                        <img src="{% static '/pic/features/1.JPG' %}" alt="特色封面图片">
+                        <img src="/media/features/1.jpg" alt="特色封面图片">
                     </div>
 
                     <div class="text">
@@ -115,7 +115,7 @@
 
                 <div class="features_item">
                     <div class="pic_box">
-                        <img src="{% static '/pic/features/2.JPG' %}" alt="特色封面图片">
+                        <img src="/media/features/2.jpg" alt="特色封面图片">
                     </div>
 
                     <div class="text">

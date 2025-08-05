@@ -4,6 +4,7 @@ __pycache__/
 build/
 dist/
 public/
+media/
 wheels/
 *.egg-info
 

@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@keyframes xuanzhuan {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(20deg);
+  }
+}
+
 header {
   height: 60px;
   background-color: #fff;
@@ -133,6 +143,7 @@ main .news-list .wrap2 .title-box .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .news-list .wrap2 .title-box .title .text {
@@ -293,6 +304,7 @@ main .station_detail .station .basic .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .station_detail .station .basic .title .text {
@@ -326,6 +338,33 @@ main .station_detail .station .basic .station_con .section .sec_item .s2 {
   font-weight: bold;
 }
 
+main .station_detail .station .basic .pic_show {
+  margin: 40px auto;
+}
+
+main .station_detail .station .basic .pic_show .pic_box {
+  margin: auto;
+  width: 700px;
+  overflow: hidden;
+}
+
+main .station_detail .station .basic .pic_show .pic_box img {
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  transition: transform .5s;
+}
+
+main .station_detail .station .basic .pic_show .pic_box img:hover {
+  transform: scale(104%);
+}
+
+main .station_detail .station .basic .pic_show .pic_desc {
+  font-size: 1.2em;
+  color: #272e3b;
+  text-align: center;
+}
+
 main .home_page .section_1 {
   margin-top: 20px;
   height: 520px;
@@ -357,6 +396,7 @@ main .home_page .section_1 .pic_box .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .home_page .section_1 .pic_box .title .text {
@@ -411,6 +451,7 @@ main .home_page .section_1 .news_list_box .title_box .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .home_page .section_1 .news_list_box .title_box .title .text {
@@ -496,6 +537,7 @@ main .home_page .section_2 .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .home_page .section_2 .title .text {
@@ -533,6 +575,7 @@ main .home_page .section_2 .station_list .station_item {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  transition: transform .5s;
 }
 
 main .home_page .section_2 .station_list .station_item .text {
@@ -568,7 +611,11 @@ main .home_page .section_2 .station_list .station_item .pic {
 main .home_page .section_2 .station_list .station_item .pic img {
   width: 100%;
   height: 100%;
-  transition: transform 1s;
+  transition: transform .5s;
+}
+
+main .home_page .section_2 .station_list .station_item:hover {
+  transform: translate(0, -4px);
 }
 
 main .home_page .section_2 .station_list .station_item:hover .pic img {
@@ -594,6 +641,7 @@ main .home_page .section_3 .title .line {
   height: 24px;
   background-color: #c7000b;
   transform: rotate(20deg);
+  animation: xuanzhuan 2s;
 }
 
 main .home_page .section_3 .title .text {

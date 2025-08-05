@@ -9,7 +9,7 @@ STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
 DEBUG = False
 CSRF_COOKIE_SECURE = False  # 允许HTTP传输CSRF Cookie
 SESSION_COOKIE_SECURE = False  # 允许HTTP传输会话Cookie
-CSRF_TRUSTED_ORIGINS = ["http://192.168.0.8:8888", "http://10.26.0.11:8888"]
+CSRF_TRUSTED_ORIGINS = ["http://192.168.0.9:8888", "http://10.26.0.11:8888"]
 
 ALLOWED_HOSTS = ["*"]
 
@@ -46,6 +46,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -87,12 +88,16 @@ USE_I18N = True
 
 USE_TZ = False
 
-
+# 静态文件
 STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
 STATIC_ROOT = BASE_DIR / "public"
+
+# 媒体文件
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
