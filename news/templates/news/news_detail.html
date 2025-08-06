@@ -10,7 +10,8 @@
 {% block content %}
 <main>
     <div class="location">
-        当前位置：<a href="#">首页</a> ><a href="#">新闻列表</a> > <a href="#">重要新闻</a>
+        <a href="{% url 'news:index' %}" target="_blank">首页</a> > <a href="{% url 'news:list' 1 1 %}"
+            target="_blank">新闻列表</a> > {{ article.subset_id }}
     </div>
 
     <div class="news-detail">
@@ -18,18 +19,8 @@
         <h1>{{ article.title }}</h1>
 
         <div class="desc">
-            <div>
-                <img src="{% static '/icon/datetime-icon.svg' %}" alt="日期图标">
-                <span>{{ article.create_time | date:"Y年m月d日 H:i" }}</span>
-            </div>
-            <div>
-                <img src="{% static '/icon/edit-icon.svg' %}" alt="作者图标">
-                <span>{{ article.user_id }}</span>
-            </div>
-            <div>
-                <img src="{% static '/icon/view-icon.svg' %}" alt="阅读次数图标">
-                <span>{{ article.read }}</span>
-            </div>
+            <img src="{% static '/icon/datetime-icon.svg' %}" alt="日期图标">
+            <span>{{ article.create_time | date:"Y年m月d日" }}</span>
         </div>
 
         <div class="dividing_line"></div>
