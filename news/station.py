@@ -236,7 +236,13 @@ stations: List[StationModel] = [
         yalixiang_changdu=44,
         yalixiang_koujing="2.2X3",
         yalixiang_jiegou="钢混",
-        station_pic_list=[],
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_1059.JPG"),
+            StationPic(title="主厂房", src="DSC_1075.JPG"),
+            StationPic(title="控制室", src="DSC_1079.JPG"),
+            StationPic(title="进水闸", src="DSC_1067.JPG"),
+            StationPic(title="出水闸", src="DSC_1056.JPG"),
+        ],
     ),
     StationModel(
         station_name="黄山寺排灌站（新站）",
@@ -269,7 +275,12 @@ stations: List[StationModel] = [
         yalixiang_changdu=44,
         yalixiang_koujing="2.7X3",
         yalixiang_jiegou="钢混",
-        station_pic_list=[],
+        station_pic_list=[
+            StationPic(title="泵站远景", src="DSC_1062.JPG"),
+            StationPic(title="主厂房", src="DSC_1089.JPG"),
+            StationPic(title="进水闸", src="DSC_1074.JPG"),
+            StationPic(title="出水闸", src="DSC_1058.JPG"),
+        ],
     ),
     StationModel(
         station_name="老坝泵站",
